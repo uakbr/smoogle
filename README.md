@@ -1,4 +1,8 @@
-![Whoogle Search](docs/banner.png)
+<h1 align="center"
+	
+![Whoogle Search](docs/banner2.png)
+	
+</h1>
 
 [![Latest Release](https://img.shields.io/github/v/release/benbusby/whoogle-search)](https://github.com/benbusby/shoogle/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
