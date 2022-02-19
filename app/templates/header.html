@@ -1,0 +1,110 @@
+{% if mobile %}
+    <header>
+        <div class="header-div">
+            <form class="search-form header"
+                  id="search-form"
+                  method="{{ 'GET' if config.get_only else 'POST' }}">
+                <a class="logo-link mobile-logo" href="home">
+                    <div id="mobile-header-logo">
+                        {{ logo|safe }}
+                    </div>
+                </a>
+                <div class="H0PQec mobile-input-div">
+                    <div class="autocomplete-mobile esbc autocomplete">
+                        <input
+                                id="search-bar"
+                                class="mobile-search-bar"
+                                autocapitalize="none"
+                                autocomplete="off"
+                                autocorrect="off"
+                                spellcheck="false"
+                                class="search-bar-input"
+                                name="q"
+                                type="text"
+                                value="{{ clean_query(query) }}"
+                                dir="auto">
+                        <input id="search-reset" type="reset" value="x">
+                        <input name="tbm" value="{{ search_type }}" style="display: none">
+                        <input type="submit" style="display: none;">
+                        <div class="sc"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+      <div>
+        <div class="header-tab-div">
+            <div class="header-tab-div-2">
+                <div class="header-tab-div-3">
+                    <div class="mobile-header header-tab">
+                        {% for tab_id, tab_content in tabs.items() %}
+                            {% if tab_content['selected'] %}
+                                <span class="mobile-tab-span">{{ tab_content['name'] }}</span>
+                            {% else %}
+                                <a class="header-tab-a" href="{{ tab_content['href'] }}">{{ tab_content['name'] }}</a>
+                            {% endif %}
+                        {% endfor %}
+                        <div class="header-tab-div-end"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="" id="s">
+      </div>
+    </header>
+{% else %}
+    <header>
+        <div class="logo-div">
+            <a class="logo-link" href="home">
+                <div class="desktop-header-logo">
+                    {{ logo|safe }}
+                </div>
+            </a>
+        </div>
+        <div class="search-div">
+            <form id="search-form"
+                  class="search-form"
+                  id="sf"
+                  method="{{ 'GET' if config.get_only else 'POST' }}">
+                <div class="autocomplete header-autocomplete">
+                    <div style="width: 100%; display: flex">
+                        <input
+                                id="search-bar"
+                                autocapitalize="none"
+                                autocomplete="off"
+                                autocorrect="off"
+                                class="search-bar-desktop search-bar-input"
+                                name="q"
+                                spellcheck="false"
+                                type="text"
+                                value="{{ clean_query(query) }}"
+                                dir="auto">
+                        <input name="tbm" value="{{ search_type }}" style="display: none">
+                        <input type="submit" style="display: none;">
+                        <div class="sc"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </header>
+    <div>
+      <div class="header-tab-div">
+          <div class="header-tab-div-2">
+              <div class="header-tab-div-3">
+                  <div class="desktop-header header-tab">
+                      {% for tab_id, tab_content in tabs.items() %}
+                          {% if tab_content['selected'] %}
+                              <span class="header-tab-span">{{ tab_content['name'] }}</span>
+                          {% else %}
+                              <a class="header-tab-a" href="{{ tab_content['href'] }}">{{ tab_content['name'] }}</a>
+                          {% endif %}
+                      {% endfor %}
+                      <div class="header-tab-div-end"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="" id="s">
+  </div>
+{% endif %}
+
+<script type="text/javascript" src="{{ cb_url('header.js') }}"></script>
